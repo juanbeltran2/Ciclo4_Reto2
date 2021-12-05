@@ -19,7 +19,7 @@ import Reto2.Reto2.modelo.Cookware;
 import Reto2.Reto2.servicio.CookwareService;
 
 @RestController
-@RequestMapping("/api/Cookware")
+@RequestMapping("/api/cookware")
 @CrossOrigin("*")
 public class CookwareController {
     @Autowired
