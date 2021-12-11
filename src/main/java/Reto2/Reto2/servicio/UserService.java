@@ -23,6 +23,7 @@ public class UserService {
         return userRepository.getUser(id);
     }
 
+
     public User create(User user) {
         if (user.getId() == null) {
             return user;            
@@ -65,6 +66,14 @@ public class UserService {
                 }
                 if (user.getZone() != null) {
                     userDb.get().setZone(user.getZone());
+                }
+
+                if (user.getBirthtDay() != null){
+                    userDb.get().setBirthtDay(user.getBirthtDay());
+                }
+
+                if (user.getMonthBirthtDay() != null){
+                    userDb.get().setMonthBirthtDay(user.getMonthBirthtDay());
                 }
                 
                 userRepository.update(userDb.get());

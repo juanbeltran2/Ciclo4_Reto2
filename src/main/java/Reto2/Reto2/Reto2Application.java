@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import Reto2.Reto2.interfaces.InterfaceCookware;
+import Reto2.Reto2.interfaces.InterfaceOrder;
 import Reto2.Reto2.interfaces.InterfaceUser;
 
 @Component
@@ -16,6 +17,8 @@ public class Reto2Application implements CommandLineRunner {
     private InterfaceCookware interfaceCookware;
     @Autowired
     private InterfaceUser interfaceUser;
+    @Autowired
+    private InterfaceOrder interfaceOrder; 
 
 	public static void main(String[] args) {
 		SpringApplication.run(Reto2Application.class, args);
@@ -25,6 +28,7 @@ public class Reto2Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         interfaceCookware.deleteAll();
         interfaceUser.deleteAll();
+        interfaceOrder.deleteAll();
     }
 
 }

@@ -17,48 +17,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import Reto2.Reto2.modelo.User;
-import Reto2.Reto2.servicio.UserService;
+import Reto2.Reto2.modelo.Order;
+import Reto2.Reto2.servicio.OrderService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/order")
 @CrossOrigin("*")
-public class UserController {
+public class OrderController {
     @Autowired
-    private UserService userService;
-     
-     @GetMapping("/all")
-    public List<User> getAll() {
-        return userService.getAll();
+    private OrderService orderService;
+
+    @GetMapping("/all")
+    public List<Order> getAll() {
+        return orderService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUser(@PathVariable("id") Integer id) {
-        return userService.getUser(id);
+    public Optional<Order> getUser(@PathVariable("id") Integer id) {
+        return orderService.getOrder(id);
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public User create(@RequestBody User user) {
-        return userService.create(user);
+    public Order create(@RequestBody Order order) {
+        return orderService.create(order);
     }
-    
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public User update(@RequestBody User user) {
-        return userService.update(user);
+    public Order update(@RequestBody Order order) {
+        return orderService.update(order);
     }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id) {
-        return userService.delete(id);
+        return orderService.delete(id);
     }
-    @GetMapping("/{email}/{password}")
-    public User authenticateUser(@PathVariable("email") String email, @PathVariable("password") String password) {
-        return userService.authenticateUser(email, password);
+
+    @GetMapping("/zona/{zone}")
+    public  List<Order> getOrdersByZone(@PathVariable("zone") String zone){
+        return orderService.getOrderByZone(zone);
     }
-    @GetMapping("/emailexist/{email}")
-    public boolean emailExists(@PathVariable("email") String email) {
-        return userService.emailExists(email);
-    }
+    
 }
