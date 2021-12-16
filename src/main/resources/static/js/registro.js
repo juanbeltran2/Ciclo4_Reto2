@@ -63,7 +63,7 @@ function crearUsuario(dataToSend){
         contentType: "application/json",
         complete: function (respuesta){
             alert("Cuenta creada de forma correcta")
-            window.location.href = "index.html";
+            window.location.reload() 
         }
     });
 }
