@@ -1,0 +1,3 @@
+El front se encuentra en la ruta:
+
+\src\main\resources\static

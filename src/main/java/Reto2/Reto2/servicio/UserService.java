@@ -67,7 +67,7 @@ public class UserService {
                 if (user.getZone() != null) {
                     userDb.get().setZone(user.getZone());
                 }
-
+/*
                 if (user.getBirthtDay() != null){
                     userDb.get().setBirthtDay(user.getBirthtDay());
                 }
@@ -75,7 +75,7 @@ public class UserService {
                 if (user.getMonthBirthtDay() != null){
                     userDb.get().setMonthBirthtDay(user.getMonthBirthtDay());
                 }
-                
+                */
                 userRepository.update(userDb.get());
                 return userDb.get();
             } else {
