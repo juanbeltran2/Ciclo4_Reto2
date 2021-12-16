@@ -57,6 +57,10 @@ public class OrderService {
                     orderDb.get().setQuantities(order.getQuantities());
                 }
 
+                if (order.getStatus() != null){
+                    orderDb.get().setStatus(order.getStatus());
+                }
+
                 orderRepository.update(orderDb.get());
                 return orderDb.get();
             } else {
